@@ -1,29 +1,19 @@
-import { View, Text, TouchableOpacity, SafeAreaView } from 'react-native'
+import { View, Text, TouchableOpacity, SafeAreaView, AppState } from 'react-native'
 import React from 'react'
-import Icon from 'react-native-vector-icons/Ionicons';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import AuthStack from './Navigation/AuthStack';
+import AppStack from './Navigation/AppStack';
+
+
+const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
-    <SafeAreaView
-    style={{
-      flex:1,
-      justifyContent:'center',
-      alignItems:'center',
-      backgroundColor:'#fff'
-    }}
-    >
-      <View>
-        <Text style={{fontSize:30, fontWeight:'bold', color:'#20315f'}}>Home</Text>
-      </View>
-      <TouchableOpacity>
-        <Text>
-          Let's Begin
-        </Text>
-        <MaterialIcons name='arrow-forward' size={22} color="#fff" />
-      </TouchableOpacity>
-    </SafeAreaView>
+    <NavigationContainer>
+      <AppStack />
+     {/*  <AuthStack /> */}
+  </NavigationContainer>
   )
 }
-
 export default App;
