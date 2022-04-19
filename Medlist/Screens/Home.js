@@ -17,11 +17,13 @@ const Home = ({navigation}) => {
                 <Text style={{fontSize: 16, fontWeight:'bold', color:'#000'}}>
                     Hello Surendra
                 </Text>
+                <TouchableOpacity onPress={() => navigation.openDrawer()}>
                 <ImageBackground 
                 source={{uri:'https://www.pngkey.com/png/detail/114-1149878_setting-user-avatar-in-specific-size-without-breaking.png'}}
                 style={{width: 35, height: 35}}
                 imageStyle={{borderRadius: 25}}
                 />
+                </TouchableOpacity>
             </View>
             
             <View 
