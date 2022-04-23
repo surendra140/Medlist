@@ -1,10 +1,10 @@
 import { View, Text, TouchableOpacity } from 'react-native'
 import React from 'react'
 
-const CartScreen = ({naviagtion}) => {
+const CartScreen = ({navigation}) => {
   return (
     <View>
-        <TouchableOpacity onPress={() => naviagtion.navigate('EditProfile')}>
+        <TouchableOpacity onPress={() =>navigation.navigate('EditScreen')}>
         <Text>CartScreen</Text>
            </TouchableOpacity>
       <Text>CartScreen</Text>
