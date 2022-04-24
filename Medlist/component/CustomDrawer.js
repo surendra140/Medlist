@@ -4,6 +4,7 @@ import { DrawerContentScrollView, DrawerItemList} from '@react-navigation/drawer
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
+import { Auth } from '../services';
 
 
 
@@ -33,7 +34,7 @@ const CustomDrawer = (props) => {
                 </View>
            </TouchableOpacity>
 
-           <TouchableOpacity onPress={() => {}} style={{paddingVertical:15}}>
+           <TouchableOpacity onPress={() => Auth.signOut()} style={{paddingVertical:15}}>
                 <View style={{flexDirection:'row', alignItems:'center'}}>
                 <Ionicons name='exit-outline' size={22} color='#000' />
                 <Text style={{fontSize: 15, marginLeft: 5, fontWeight:'500', color:'#000'}}>Sign Out</Text>

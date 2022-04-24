@@ -1,4 +1,5 @@
 import auth from '@react-native-firebase/auth';
+import { Alert } from 'react-native';
 
 const signUp = async (fullName, email, password) => {
     if(!fullName || !email || !password){
@@ -39,7 +40,7 @@ const Auth = {
     signUp,
     signIn,
     signOut,
-    googleLogin,
+    
 }
 
-export default Auth
+export default Auth;

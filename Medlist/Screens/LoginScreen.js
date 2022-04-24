@@ -96,7 +96,7 @@ const LoginScreen = ({navigation}) => {
             </View>
             <View style={{width: 10}}></View>
             <View style={Styles.btnSecondary}>
-            <TouchableOpacity onPress={() => Auth.googleLogin()}>
+            <TouchableOpacity onPress={() =>alert("Login With Google")}>
               <Text style={{fontWeight: 'bold', fontSize: 16}}>
                 Sign in with
               </Text>
