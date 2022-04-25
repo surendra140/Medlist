@@ -21,9 +21,9 @@ const MedHistoryStack = ({navigation}) => {
   <Stack.Navigator screenOptions={{
       headerShown:false
     }}>
-     <Stack.Screen name="MedicalRecoreds" component={MedicalRecords}/>
      <Stack.Screen name="ViewData" component={ViewData} />
-     
+     <Stack.Screen name="MedicalRecords" component={MedicalRecords}/>
+    
     </Stack.Navigator>
   
   )

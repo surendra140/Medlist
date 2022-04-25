@@ -12,6 +12,9 @@ const MedicalRecords = ({navigation}) => {
   const [uploading, setUploading] = useState(false);
   const [transferred, setTransferred] = useState(0);
   const [title, setTitle] = useState(null);
+  const [date, setDate] = useState(null);
+  const [patientName, setPatientName] = useState(null);
+  const [HosptName, setHosptName] = useState(null);
 
   const choosePhotoFromLibrary = () => {
     ImagePicker.openPicker({
@@ -33,6 +36,9 @@ const MedicalRecords = ({navigation}) => {
     .collection('MedicalHistory')
     .add({
       title : title,
+      date:date,
+      patientName:patientName,
+      HosptName: HosptName,
       postImg : imageUrl,
       postTime: firestore.Timestamp.fromDate(new Date()),
       
@@ -91,42 +97,98 @@ const MedicalRecords = ({navigation}) => {
   }
 
   return (
+<> 
+    <View style={{flexDirection: 'row',marginLeft:5}}>
+            <Image style={styles.img} source={require('../images/left-arrow.png')}  />
+           <Text style={{fontWeight: 'bold', color: "black", fontSize: 18, justifyContent: 'flex-start', padding: 20}}>
+            Upload Records
+          </Text>
+        </View>
+    <View style={{
+    }}>
+
+    <Text style={{color: '#000', fontSize: 18, fontWeight: 'bold', padding:15}}>Select File</Text>
+   
     <View style={styles.container}>
      
-    <TextInput placeholder='Title'/>
+     <TextInput placeholder='Title' style={styles.InputText} value={title} onChangeText={setTitle}></TextInput>
+     <TextInput placeholder='Date' style={styles.InputText} value={date} onChangeText={setDate}></TextInput>
+     <TextInput placeholder='Patient Name' style={styles.InputText} value={patientName} onChangeText={setPatientName}></TextInput>
+     <TextInput placeholder='Hospital Name' style={styles.InputText} value={HosptName} onChangeText={setHosptName}></TextInput>
+    
+     </View>
 
-    <Image source={{uri :image}} style={{width: "100%", height: 150}}/>
+     <Text style={{color: '#000', fontSize: 16, marginLeft:15, fontWeight:'500' }}>Preview</Text>
+     
+ 
+   <View style={styles.btnContainer}>
+   <Image source={{uri :image}} style={styles.imgBox}/>
 
-    <TextInput placeholder='Title' style={styles.InputText} value={title} onChangeText={setTitle}/>
-    <TextInput placeholder='Date' style={styles.InputText} />
-
-    <TouchableOpacity style={{justifyContent: 'center', alignItems:'center', marginTop:250, backgroundColor: '#eee', height: 50}} onPress={choosePhotoFromLibrary}>
-           <Text style={{fontSize: 20,
-               fontWeight: 'bold',
-               color: '#000'}}>Choose File</Text>
+    <TouchableOpacity style={styles.btn} onPress={choosePhotoFromLibrary}>
+           <Text style={styles.btnText}>Choose File</Text>
        </TouchableOpacity>
 
-       <TouchableOpacity style={{justifyContent: 'center', alignItems:'center', marginTop: 20, backgroundColor: '#eee', height: 50}} onPress={submitRecords} >
-           <Text style={{fontSize: 20,
-               fontWeight: 'bold',
-               color: '#000'}}>Upload File</Text>
+       <TouchableOpacity style={styles.btn}onPress={submitRecords} >
+           <Text style={styles.btnText}>Upload File</Text>
        </TouchableOpacity>
 
-       <TouchableOpacity style={{justifyContent: 'center', alignItems:'center', marginTop: 20, backgroundColor: '#eee', height: 50}} onPress={() => navigation.navigate('ViewData')} >
-           <Text style={{fontSize: 20,
-               fontWeight: 'bold',
-               color: '#000'}}>View Data</Text>
+       <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate('ViewData')} >
+           <Text style={styles.btnText}>View Data</Text>
        </TouchableOpacity>
+       </View>
    </View>
+   </>
   )
 }
 
 export default MedicalRecords;
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    width:'100%',
+   paddingLeft:20,
+   paddingRight:20,
+   paddingBottom:20,
   },
+  img:{
+    width: 20, height: 20, 
+    marginTop: 22
+    
+  },
+  InputText:{
+    width: '100%',
+    borderBottomColor: '#000000',
+    borderBottomWidth: 1,
+}, 
+btn:{
+       marginTop:10,
+       borderColor: "black",
+       borderWidth:0.5,
+       width:"90%",
+       height:50,
+       justifyContent:'center',
+       borderRadius:8
+},
+btnText:{
+  fontSize: 20,
+  fontWeight: 'bold',
+  color: '#000',
+  textAlign:'center'
+},
+imgBox: {
+  marginTop:10,
+  marginBottom:10,
+  width: "90%", 
+  height: 200,
+  borderWidth:1,
+  borderColor:'blue',
+},
+btnContainer:{
+  justifyContent:"center",
+  alignItems:'center'
+},
+text1:{
+
+}
+
  
 });
