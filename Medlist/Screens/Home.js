@@ -4,6 +4,10 @@ import Feather from 'react-native-vector-icons/Feather';
 import Carousel from 'react-native-snap-carousel';
 import { sliderData } from '../model/data';
 import BannerSlider from '../component/BannerSlider';
+import Cards from '../component/Cards';
+import Consult from '../component/Consult';
+import Doctors from '../component/Doctors';
+import Specialist from '../component/Specialist';
 
 const Home = ({navigation}) => {
 
@@ -62,6 +66,22 @@ const Home = ({navigation}) => {
                 loop={true}
             />
             
+           {/* Consult */}
+
+        <View>
+            <Consult />
+        </View>
+
+        {/* Doctors */}
+        <View>
+            <Doctors />
+        </View>
+
+        {/* Specialist Doctor */}
+        <View>
+            <Specialist />
+        </View>
+
         </ScrollView>
     </SafeAreaView>
 

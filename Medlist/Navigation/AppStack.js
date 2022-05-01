@@ -1,7 +1,6 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import ProfileScreen from '../Screens/ProfileScreen';
 import SettingsScreen from '../Screens/SettingsScreen';
 import CustomDrawer from '../component/CustomDrawer';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -12,6 +11,11 @@ import { createStackNavigator } from '@react-navigation/stack';
 import ViewData from '../Screens/ViewData';
 import FamilyMembers from '../Screens/FamilyMembers';
 import AddMembers from '../Screens/AddMembers';
+import DoctorsScreen from '../Screens/DoctorsScreen';
+import BookAppointment from '../Screens/BookAppoitnment';
+import DoctorDetails from '../Screens/DoctorDetails';
+import AppointmentList from '../Screens/AppointmentList';
+import FileViewer from '../Screens/FileViewer';
 
 
 const Drawer = createDrawerNavigator();
@@ -23,12 +27,29 @@ const MedHistoryStack = ({navigation}) => {
       headerShown:false
     }}>
      <Stack.Screen name="ViewData" component={ViewData} />
+     <Stack.Screen name="FileViewer" component={FileViewer} />
      <Stack.Screen name="MedicalRecords" component={MedicalRecords}/>
     
     </Stack.Navigator>
   
   )
 }
+
+const DoctorsStack = ({navigation}) => {
+  return (
+  <Stack.Navigator screenOptions={{
+      headerShown:false
+    }}>
+     <Stack.Screen name="DoctorsScreen" component={DoctorsScreen} />
+     <Stack.Screen name="DoctorDetails" component={DoctorDetails}/>
+     <Stack.Screen name="BookAppointment" component={BookAppointment}/>
+     <Stack.Screen name="AppointmentList" component={AppointmentList}/>
+    
+    </Stack.Navigator>
+  
+  )
+}
+
 
 const MemberStack = ({navigation}) => {
   return (
@@ -53,7 +74,7 @@ const AppStack = ({navigation}) => {
       >
 
         <Drawer.Screen name="TabNavigator" component={TabNavigator}/>
-        <Drawer.Screen name="ProfileScreen" component={ProfileScreen} />
+        <Drawer.Screen name="Doctors" component={DoctorsStack} />
         <Drawer.Screen name="Medical Records" component={MedHistoryStack} />
         <Drawer.Screen name="Family Records" component={MemberStack} />
         <Drawer.Screen name="SettingsScreen" component={SettingsScreen} />

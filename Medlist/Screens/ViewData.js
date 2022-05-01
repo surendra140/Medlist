@@ -2,7 +2,7 @@ import { SafeAreaView, View, FlatList, StyleSheet, Text,Image ,StatusBar, Toucha
 import React,{ useEffect, useState } from 'react';
 import firestore from '@react-native-firebase/firestore';
 
-const Item = ({ title , img, time1,HosptName, patientName }) => (
+const Item = ({ title , img, time1,HosptName, patientName, navigation }) => (
     <View style={styles.item}>
      
       <View style={{marginLeft:10}}>
@@ -14,7 +14,9 @@ const Item = ({ title , img, time1,HosptName, patientName }) => (
     </View>
       </View>
       <View style={styles.imgCont}>
+        <TouchableOpacity onPress={()=> navigation.navigate('FileViewer',{data: [img]})}>
          <Image source={{uri: img}} style={{width: 120, height: 100,}}/>
+         </TouchableOpacity>
       </View>
       
     </View>
@@ -22,7 +24,7 @@ const Item = ({ title , img, time1,HosptName, patientName }) => (
 
 const ViewData = ({navigation}) => {
     const renderItem = ({ item }) => (
-        <Item title={item.title} img={item.img} time1={item.date} patientName={item.patientName} HosptName={item.HosptName}  />
+        <Item title={item.title} img={item.img} time1={item.date} patientName={item.patientName} HosptName={item.HosptName} navigation={navigation} />
       );
 
       const [records, setRecords] = useState(null);

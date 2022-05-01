@@ -9,6 +9,7 @@ import Feather from 'react-native-vector-icons/Feather';
 import { createStackNavigator } from '@react-navigation/stack';
 import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 import EditScreen from '../Screens/EditScreen';
+import Doctors from '../component/Doctors';
 
 
 const Tab = createBottomTabNavigator();
@@ -22,6 +23,7 @@ const HomeStack = ({navigation}) => {
        <Stack.Screen name="Home" component={Home}/>
        <Stack.Screen name="CartScreen" component={CartScreen} />
        <Stack.Screen name="EditScreen" component={EditScreen} />
+       <Stack.Screen name="Doctors" component={Doctors} />
     
       </Stack.Navigator>
     
