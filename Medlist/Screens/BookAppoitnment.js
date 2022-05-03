@@ -1,12 +1,8 @@
 import { View, Text, Image, StyleSheet, Button, TextInput, TouchableOpacity, Platform, Alert } from 'react-native'
 import React from 'react';
-import DatePicker from 'react-native-date-picker'
 import { useState } from 'react';
 import { Dropdown } from 'react-native-element-dropdown';
-import AntDesign from 'react-native-vector-icons/AntDesign';
-
 import DateTimePicker, { DateTimePickerAndroid } from '@react-native-community/datetimepicker';
-import { NavigationContainer } from '@react-navigation/native';
 import firestore from '@react-native-firebase/firestore';
 
 const data = [

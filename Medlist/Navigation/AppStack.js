@@ -1,11 +1,8 @@
-import { View, Text } from 'react-native'
+
 import React from 'react'
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import SettingsScreen from '../Screens/SettingsScreen';
 import CustomDrawer from '../component/CustomDrawer';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import { color } from 'react-native-reanimated';
-import TabNavigator from './TabNavigator';
 import MedicalRecords from '../Screens/MedicalRecords';
 import { createStackNavigator } from '@react-navigation/stack';
 import ViewData from '../Screens/ViewData';
@@ -27,7 +24,7 @@ const HomeStack = ({navigation}) => {
   <Stack.Navigator screenOptions={{
       headerShown:false
     }}>
-     <Stack.Screen name="Home" component={Home}/>
+     <Stack.Screen name="Home2" component={Home}/>
      <Stack.Screen name="DoctorsScreen" component={DoctorsScreen}/>
      <Stack.Screen name="DoctorDetails" component={DoctorDetails}/>
      <Stack.Screen name="BookAppointment" component={BookAppointment}/>

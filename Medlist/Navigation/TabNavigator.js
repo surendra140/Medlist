@@ -1,11 +1,9 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { View, Text } from 'react-native'
 import React from 'react'
 import Home from '../Screens/Home';
 import CartScreen from '../Screens/CartScreen';
 import ServiceScreen from '../Screens/ServiceScreen';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import Feather from 'react-native-vector-icons/Feather';
 import { createStackNavigator } from '@react-navigation/stack';
 import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 import EditScreen from '../Screens/EditScreen';

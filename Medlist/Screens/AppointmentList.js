@@ -1,7 +1,5 @@
 import { View, Text,StyleSheet, Image, Dimensions, ScrollView, SafeAreaView,FlatList, StatusBar,TouchableOpacity } from 'react-native'
 import React from 'react'
-import { useNavigation } from '@react-navigation/native';
-import { color } from 'react-native-reanimated';
 
 
 const { width, height } = Dimensions.get('window')

@@ -1,6 +1,5 @@
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
-import { color } from 'react-native-reanimated';
 import Grid from './Grid';
 
 const Consult = ({navigation}) => {
