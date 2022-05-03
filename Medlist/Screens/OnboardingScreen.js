@@ -15,27 +15,14 @@ const OnboardingScreen = ({navigation}) => {
     onSkip={() => navigation.replace('LoginScreen')}
     onDone={()=> navigation.navigate('LoginScreen')}
   pages={[
-    {
-      backgroundColor: '#a6e4d0',
-      image: <Image source={require('../images/coffee.png')} />,
-      title: 'Onboarding1',
-      subtitle: 'Done with React Native Onboarding Swiper',
-    },
-
+   
     {
         backgroundColor: '#fdeb93',
-        image: <Image source={require('../images/deals.png')} />,
-        title: 'Onboarding2',
-        subtitle: 'Done with React Native Onboarding Swiper',
+        image: <Image source={require('../images/online-doctor.png')} style={{height:300, width:360}} />,
+        title: 'Find Your Doctor ',
+        subtitle: 'Easy way to make an appoitnment with doctor',
       },
-
-      {
-        backgroundColor: '#fff',
-        image: <Image source={require('../images/desserts.png')} />,
-        title: 'Onboarding3',
-        subtitle: 'Done with React Native Onboarding Swiper',
-      },
-   
+ 
   ]}
 />
   )
