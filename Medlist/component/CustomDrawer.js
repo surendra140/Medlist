@@ -17,8 +17,7 @@ const CustomDrawer = (props) => {
                 source={{uri:'https://www.pngkey.com/png/detail/114-1149878_setting-user-avatar-in-specific-size-without-breaking.png'}}
                 style={{height: 80, width: 80, borderRadius: 40, marginBottom: 10}}
             />  
-            <Text style={{color: '#000', fontSize: 18, fontWeight: 'bold'}}>Sonam Gupta</Text>
-            <Text style={{color: '#117ed6', fontSize: 16, fontWeight: '500'}}>View and edit profile</Text>
+            <Text style={{color: '#000', fontSize: 18, fontWeight: 'bold'}}>Surendra Bankar</Text>
             </ImageBackground>
 
             <View style={{flex: 1, backgroundColor: '#fff', paddingTop:10}}>

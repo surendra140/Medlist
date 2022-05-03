@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     },
     itemName: {
       fontSize: 16,
-      color: '#000',
+      color: '#030657',
       fontWeight: '700',
     },
     itemCode: {

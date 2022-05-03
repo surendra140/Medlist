@@ -2,7 +2,7 @@ import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 import Grid3 from './Grid3';
 
-const Specialist = () => {
+const Specialist = ({navigation}) => {
   return (
     <View>
          <View style={styles.content}>
@@ -15,7 +15,7 @@ const Specialist = () => {
                  </View>   
 
              <View>
-                 <TouchableOpacity style={styles.button}>
+                 <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('DoctorsScreen')}>
                      <Text style={{marginTop: 7, fontWeight: 'bold', color: '#000'}}>View All Specialists</Text>
                  </TouchableOpacity>
              </View>  

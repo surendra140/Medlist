@@ -18,9 +18,16 @@ const Home = ({navigation}) => {
     <SafeAreaView style={{flex:1, backgroundColor: "#fff"}}>
         <ScrollView style={{padding: 20}}>
             <View style={{flexDirection:'row', justifyContent:'space-between', marginBottom:20}}>
-                <Text style={{fontSize: 16, fontWeight:'bold', color:'#000'}}>
-                    Hello Surendra
-                </Text>
+                <View style={{flexDirection: 'row', marginLeft: 5}}>
+                <Text style={{fontWeight: 'bold', fontSize: 28, color: '#000'}}>
+                 MED
+               </Text>
+                <Text
+                style={{fontWeight: 'bold', fontSize: 28, color: '#64beff'}}>
+                 LIST
+             </Text> 
+                </View>
+           
                 <TouchableOpacity onPress={() => navigation.openDrawer()}>
                 <ImageBackground 
                 source={{uri:'https://www.pngkey.com/png/detail/114-1149878_setting-user-avatar-in-specific-size-without-breaking.png'}}
@@ -69,17 +76,17 @@ const Home = ({navigation}) => {
            {/* Consult */}
 
         <View>
-            <Consult />
+            <Consult navigation={navigation}/>
         </View>
 
         {/* Doctors */}
         <View>
-            <Doctors />
+            <Doctors navigation={navigation} />
         </View>
 
         {/* Specialist Doctor */}
         <View>
-            <Specialist />
+            <Specialist navigation={navigation}/>
         </View>
 
         </ScrollView>

@@ -16,10 +16,28 @@ import BookAppointment from '../Screens/BookAppoitnment';
 import DoctorDetails from '../Screens/DoctorDetails';
 import AppointmentList from '../Screens/AppointmentList';
 import FileViewer from '../Screens/FileViewer';
+import Home from '../Screens/Home';
 
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
+
+const HomeStack = ({navigation}) => {
+  return (
+  <Stack.Navigator screenOptions={{
+      headerShown:false
+    }}>
+     <Stack.Screen name="Home" component={Home}/>
+     <Stack.Screen name="DoctorsScreen" component={DoctorsScreen}/>
+     <Stack.Screen name="DoctorDetails" component={DoctorDetails}/>
+     <Stack.Screen name="BookAppointment" component={BookAppointment}/>
+     <Stack.Screen name="AppointmentList" component={AppointmentList}/>
+  
+    </Stack.Navigator>
+  
+  )
+}
+
 
 const MedHistoryStack = ({navigation}) => {
   return (
@@ -49,6 +67,16 @@ const DoctorsStack = ({navigation}) => {
   
   )
 }
+const AppointmentStack = ({navigation}) => {
+  return (
+  <Stack.Navigator screenOptions={{
+      headerShown:false
+    }}>
+     <Stack.Screen name="AppointmentList" component={AppointmentList}/>
+    </Stack.Navigator>
+  
+  )
+}
 
 
 const MemberStack = ({navigation}) => {
@@ -74,11 +102,12 @@ const AppStack = ({navigation}) => {
       drawerContent={props => <CustomDrawer{...props} /> }
       >
 
-        <Drawer.Screen name="Home" component={TabNavigator}/>
+        <Drawer.Screen name="Home" component={HomeStack}/>
         <Drawer.Screen name="Doctors" component={DoctorsStack} />
+        <Drawer.Screen name="My Appointments" component={AppointmentStack} />
         <Drawer.Screen name="Medical Records" component={MedHistoryStack} />
         <Drawer.Screen name="Family Records" component={MemberStack} />
-        <Drawer.Screen name="SettingsScreen" component={SettingsScreen} />
+        <Drawer.Screen name="Settings" component={SettingsScreen} />
       
       </Drawer.Navigator>
   )

@@ -56,13 +56,9 @@ const styles = StyleSheet.create({
      
     },
     itemName: {
-      fontSize: 14,
+      fontSize: 15,
       color: '#000',
-      fontWeight: '600',
+      fontWeight: 'bold',
     },
-    itemCode: {
-      fontWeight: '600',
-      fontSize: 12,
-      color: '#000',
-    },
+   
   });

@@ -1,21 +1,37 @@
-import { View, Text, Image, StyleSheet, Button, TextInput, TouchableOpacity, Platform } from 'react-native'
+import { View, Text, Image, StyleSheet, Button, TextInput, TouchableOpacity, Platform, Alert } from 'react-native'
 import React from 'react';
 import DatePicker from 'react-native-date-picker'
 import { useState } from 'react';
+import { Dropdown } from 'react-native-element-dropdown';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 
 import DateTimePicker, { DateTimePickerAndroid } from '@react-native-community/datetimepicker';
 import { NavigationContainer } from '@react-navigation/native';
+import firestore from '@react-native-firebase/firestore';
 
-
+const data = [
+  { label: '10 AM', value: '10 AM' },
+  { label: '11 AM', value: '11 AM' },
+  { label: '12 AM', value: '12 AM' },
+  { label: '1 PM', value: '1 PM' },
+  { label: '2 PM', value: '2 PM' },
+  { label: '3 PM', value: '3 PM' },
+  { label: '4 PM', value: '4 PM' },
+  { label: '5 PM', value: '5 PM' },
+];
 
 const BookAppointment = ({route,navigation}) => {
+
+  const[fullname, setFullName] = useState(null);
+  const[phoneNumber, setPhoneNumber] = useState(null);
+  const[urMessage, setUrMessage] = useState(null);
 
   const [date, setDate] = useState(new Date());
   const [mode, setMode] = useState('date');
   const [show, setShow] = useState(false);
 
  
-
+// calender
  const onChange =(event, selectedDate) =>{
   const currentDate = selectedDate;
   setShow(false);
@@ -31,12 +47,38 @@ const BookAppointment = ({route,navigation}) => {
     showMode('date');
   };
 
-  const showTimepicker = () => {
-    showMode('time');
-  };
+ 
 
+  //drop down
   const [value, setValue] = useState(null);
   const [isFocus, setIsFocus] = useState(false);
+
+  
+
+  //firebase send data
+  const confirmAppointment = async () => {
+  
+    firestore()
+    .collection('AppointmentDetails')
+    .add({
+      
+      fullname : fullname,
+      Phone :phoneNumber,
+      urMessage:urMessage,
+      apdate: date.toUTCString(),
+      slot: value
+      
+    })
+    .then(() => {
+      console.log('Appointment Booked!');
+      Alert.alert('Appointment successfully Booked')
+      setPost(null);
+     
+    })
+    .catch((error) => {
+      console.log('Something Wrong');
+    })
+  }
 
   return (
 
@@ -72,27 +114,39 @@ const BookAppointment = ({route,navigation}) => {
     
     <View style={{marginTop: 30}}>   
     <Text style={{color: '#000', fontWeight: '700'}}>Fill the form</Text>
-    <TextInput placeholder='Full Name'style={[styles.inputbox]} />
+    <TextInput placeholder='Full Name'style={[styles.inputbox]} value={fullname} onChangeText={setFullName} />
 
-    <TextInput placeholder='Phone Number'style={[styles.inputbox]} />
+    <TextInput placeholder='Phone Number'style={[styles.inputbox]} value={phoneNumber} onChangeText={setPhoneNumber} />
 
-    <View style={{flexDirection : 'row', justifyContent: 'space-evenly'}}>
+    <View style={{flexDirection : 'row', justifyContent: 'space-evenly', marginLeft:10}}>
       <TouchableOpacity onPress={showDatepicker} style={styles.text1}>
-         <Text style={{paddingHorizontal: 20,marginTop: 12, color: 'gray'}}>Choose Date</Text>
+         <Text style={{paddingHorizontal: 20,marginTop: 12, color: 'gray',}} value={date} onChangeText={date.toDateString()}>Choose Date</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={showTimepicker} style={styles.text2}>
-         <Text style={{paddingHorizontal: 20,marginTop: 12, color: 'gray'}}>Choose Time</Text>
-      </TouchableOpacity>
+      <View style={styles.container}>
+        <Dropdown
+          style={[styles.dropdown]}
+          placeholderStyle={styles.placeholderStyle}
+          selectedTextStyle={styles.selectedTextStyle}
+          iconStyle={styles.iconStyle}
+          data={data}
+          maxHeight={300}
+          labelField="label"
+          valueField="value"
+          value={value}
+          onChange={item => {
+            setValue(item.value);
+            setIsFocus(false);
+          }}
+        />
+      </View>
     </View>
      
       
 
-<TextInput placeholder='Your Message'style={[styles.inputbox2,]} />
+<TextInput placeholder='Your Message'style={[styles.inputbox2]} value={urMessage} onChangeText={setUrMessage} />
 
 </View>
-
-<Text>selected : {date.toLocaleString()}</Text>
 
 {show && (
         <DateTimePicker
@@ -105,7 +159,8 @@ const BookAppointment = ({route,navigation}) => {
       )}
 
 
-<TouchableOpacity style={styles.button}  onPress = {() => navigation.navigate('AppointmentList')}>
+
+<TouchableOpacity style={styles.button}  onPress = {confirmAppointment}>
          <Text style={{color: '#000', fontWeight: 'bold'}}>Confirm Appointment</Text>
      </TouchableOpacity>
 
@@ -163,34 +218,19 @@ dropdown: {
   borderWidth: 0.5,
   borderRadius: 8,
   paddingHorizontal: 8,
-  marginTop: 8
+  marginTop: -17,
+  width:140
 },
-icon: {
-  marginRight: 5,
-},
-label: {
-  position: 'absolute',
-  backgroundColor: 'white',
-  left: 22,
-  top: 8,
-  zIndex: 999,
-  paddingHorizontal: 8,
-  fontSize: 14,
-},
+
 placeholderStyle: {
   fontSize: 16,
+  color: '#000'
 },
 selectedTextStyle: {
   fontSize: 16,
+  
 },
-iconStyle: {
-  width: 20,
-  height: 20,
-},
-inputSearchStyle: {
-  height: 40,
-  fontSize: 16,
-},
+
 inputbox :{
   height: 50,
   borderColor: 'gray',

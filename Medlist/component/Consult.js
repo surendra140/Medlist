@@ -3,12 +3,12 @@ import React from 'react'
 import { color } from 'react-native-reanimated';
 import Grid from './Grid';
 
-const Consult = () => {
+const Consult = ({navigation}) => {
   return (
     <View style={styles.container}>
          
                 <View style={{marginRight: 10}}>
-                   <Grid />
+                   <Grid navigation={navigation}/>
                  </View>   
 
 </View>

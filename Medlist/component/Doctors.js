@@ -15,7 +15,7 @@ const Doctors = ({navigation}) => {
                  </View>   
 
              <View>
-                 <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('AllDoctors')}>
+                 <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('DoctorsScreen')}>
                      <Text style={{marginTop: 7, fontWeight: 'bold', color: '#000'}}>See All Doctors</Text>
                  </TouchableOpacity>
              </View>  
