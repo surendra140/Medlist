@@ -11,7 +11,7 @@ const FileViewer = ({route}) => {
          }}
          style={{width:"90%",height:"70%", margin:20}}
       >
-
+     
       </Image>
     </View>
   )

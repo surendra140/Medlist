@@ -9,32 +9,45 @@ const { width, height } = Dimensions.get('window')
 const DATA = [
   {
     id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-    title: 'First Item',
+    title: 'Dr. Murali Reddy',
+    available: "10AM-2pm",
     image_url:
-      "https://static.onecms.io/wp-content/uploads/sites/9/2020/04/24/ppp-why-wont-anyone-rescue-restaurants-FT-BLOG0420.jpg",
+      "https://www.practostatic.com/images1-fabric/doctor/953743/dr-murali-reddy-61079374694e8.jpg",
     place: 'indore',
-    Speciality: 'Neurosergeon',
+    Speciality: 'Dermatologist',
   },
   {
     id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-    title: 'Second Item',
+    title: 'Dr. JayPrakash',
+    available: "10AM-2pm",
     image_url:
-      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cmVzdGF1cmFudCUyMGludGVyaW9yfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80",
+      "https://www.practostatic.com/images1-fabric/doctor/652470/dr-jayaprakasha-g-5ac9249d22b60.jpg",
     place: 'indore',
     Speciality: 'Neurosergeon',
   },
+
   {
-    id: '58694a0f-3da1-471f-bd96-145571e29d72',
-    title: 'Third Item',
+    id: '58694a0f-3da1-471f-bd96-145571e29d73',
+    title: 'Dr.Sowmyashree',
+    available: "10AM-2pm",
     image_url:
-      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cmVzdGF1cmFudCUyMGludGVyaW9yfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80",
+      "https://www.practostatic.com/images1-fabric/doctor/778210/dr-sowmyashree-n-5dc2ad0c391d2.jpeg",
     place: 'indore',
-    Speciality: 'Neurosergeon',
+    Speciality: 'Gynecologist',
+  },
+  {
+    id: '58694a0f-3da1-471f-bd96-145571e29d74',
+    title: 'Dr. Ravindrakumar Awachar',
+    available: "10AM-2pm",
+    image_url:
+      "https://www.practostatic.com/images1-fabric/doctor/593554/dr-ravindrakumar-awachar-5ceccf29953dc.jpg",
+    place: 'indore',
+    Speciality: 'Psychiatrist',
   },
   
 ];
 
-const Item = ({ title, Date,place, Speciality, image_url ,navigation }) => (
+const Item = ({ title, available,place, Speciality, image_url ,navigation }) => (
   <View style={styles.item}>
    <Image
       source={{
@@ -45,7 +58,7 @@ const Item = ({ title, Date,place, Speciality, image_url ,navigation }) => (
     <View style={{marginLeft:20}}>
     <Text style={styles.title}>{title}</Text>
     <View style={styles.text1}>
-        <Text style={{color: '#000'}}>Availability :{Date}</Text>
+        <Text style={{color: '#000'}}>Availability :{available}</Text>
         <Text style={{color: '#000'}}>Venue: {place}</Text>
         <Text style={{color: '#000'}}>Speciality: {Speciality}</Text>
     </View>
@@ -67,7 +80,7 @@ const DoctorsScreen = ({navigation}) => {
   const renderItem = ({ item }) => (
     <>
      <TouchableOpacity activeOpacity={1} >
-    <Item title={item.title} Date={item.Date} place={item.place} Speciality={item.Speciality} image_url={item.image_url} navigation ={navigation} />
+    <Item title={item.title} available={item.available} place={item.place} Speciality={item.Speciality} image_url={item.image_url} navigation ={navigation} />
     </TouchableOpacity>
     
     </>

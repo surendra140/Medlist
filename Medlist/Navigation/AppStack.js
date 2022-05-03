@@ -56,9 +56,10 @@ const MemberStack = ({navigation}) => {
   <Stack.Navigator screenOptions={{
       headerShown:false
     }}>
-     
-     <Stack.Screen name="AddMembers" component={AddMembers}/>
-     <Stack.Screen name="FamilyMembers" component={FamilyMembers}/>
+      <Stack.Screen name="FamilyMembers" component={FamilyMembers}/>
+      <Stack.Screen name="AddMembers" component={AddMembers}/>
+      
+    
     
     </Stack.Navigator>
   
@@ -73,7 +74,7 @@ const AppStack = ({navigation}) => {
       drawerContent={props => <CustomDrawer{...props} /> }
       >
 
-        <Drawer.Screen name="TabNavigator" component={TabNavigator}/>
+        <Drawer.Screen name="Home" component={TabNavigator}/>
         <Drawer.Screen name="Doctors" component={DoctorsStack} />
         <Drawer.Screen name="Medical Records" component={MedHistoryStack} />
         <Drawer.Screen name="Family Records" component={MemberStack} />

@@ -7,7 +7,7 @@ import ImagePicker from 'react-native-image-crop-picker';
 import storage from '@react-native-firebase/storage';
 import firestore from '@react-native-firebase/firestore';
 
-const FamilyMembers = ({navigation}) => {
+const AddMembers = ({navigation}) => {
   const [image, setImage] = useState(null);
   const [uploading, setUploading] = useState(false);
   const [transferred, setTransferred] = useState(0);
@@ -118,7 +118,7 @@ const FamilyMembers = ({navigation}) => {
     
      </View>
 
-     <Text style={{color: '#000', fontSize: 16, marginLeft:15, fontWeight:'500' }}>Add Profile Image</Text>
+     <Text style={{color: '#000', fontSize: 16, marginLeft:15,marginTop:10, fontWeight:'500' }}>Add Profile Image</Text>
      
  
    <View style={styles.btnContainer}>
@@ -132,16 +132,13 @@ const FamilyMembers = ({navigation}) => {
            <Text style={styles.btnText}>Submit Deatils</Text>
        </TouchableOpacity>
 
-       <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate('FamilyMembers')} >
-           <Text style={styles.btnText}>View Data</Text>
-       </TouchableOpacity>
        </View>
    </View>
    </>
   )
 }
 
-export default FamilyMembers;
+export default AddMembers;
 const styles = StyleSheet.create({
   container: {
     width:'100%',
@@ -178,13 +175,15 @@ imgBox: {
   marginTop:10,
   marginBottom:10,
   width: "90%", 
-  height: 200,
+  height: 220,
   borderWidth:1,
-  borderColor:'blue',
+  borderColor:'#423f38',
 },
 btnContainer:{
   justifyContent:"center",
-  alignItems:'center'
+  alignItems:'center',
+  marginTop:40
+  
 },
 text1:{
 

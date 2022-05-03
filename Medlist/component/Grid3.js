@@ -4,10 +4,10 @@ import { FlatGrid } from 'react-native-super-grid';
 
 const Grid3 = () => {
     const [items, setItems] = React.useState([
-        { name: 'General Physician', code: '#1abc9c' },
-        { name: 'Orthopedist', code: '#2ecc71' },
-        { name: 'Dentist', code: '#3498db' },
-        { name: 'Dermatologist', code: '#9b59b6' },
+        { name: 'Physician',Img:'https://www.practostatic.com/consumer-home/desktop/images/1558283618/sp-general-doctor@2x.jpg', desc: 'Find the right family doctor in your neighborhood' },
+        { name: 'Orthopedist', Img:'https://www.practostatic.com/consumer-home/desktop/images/1558283618/sp-orthopedist@2x.jpg', desc: 'For Bone and Joints issues, spinal injuries and more' },
+        { name: 'Dentist', Img:'https://www.practostatic.com/consumer-home/desktop/images/1558283618/sp-dentist@2x.jpg', desc: 'Teething troubles? Schedule a dental checkup'},
+        { name: 'Physiotherapist', Img:'https://www.practostatic.com/consumer-home/desktop/images/1558283618/sp-physiotherapist@2x.jpg', desc: 'Pulled a muscle? Get it treated by a trained physiotherapist' },
        
        
       ]);
@@ -24,12 +24,14 @@ const Grid3 = () => {
         <View style={[styles.itemContainer, { backgroundColor: "#eee" }]}>
         <View style={{flex:1}}>
         <Image 
-          source={require('../images/bg1.jpg')}
-          style={{height: 90, width: 90, borderRadius: 40, marginTop: 10, marginLeft: 25}}  />
+          source={{
+            uri: item.Img
+          }}
+          style={{height: 130, width: 120,}}  />
           </View> 
-          <View style={{flex:1,marginTop: 20, marginLeft: 10}}> 
+          <View style={{flex:1,marginTop: 20,}}> 
         <Text style={styles.itemName}>{item.name}</Text>
-        <Text style={styles.itemCode}>{item.code}</Text>
+        <Text style={styles.itemCode}>{item.desc}</Text>
         <Text style={styles.itemCode}>{item.code}</Text>
         </View>
       </View>

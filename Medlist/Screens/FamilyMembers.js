@@ -82,7 +82,7 @@ const FamilyMembers = ({navigation}) => {
 
 <View style={styles.btnContainer} >
  <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate('AddMembers')} >
-           <Text style={styles.btnText}>Add Records</Text>
+           <Text style={styles.btnText}>Add Members</Text>
        </TouchableOpacity>
 </View>
    

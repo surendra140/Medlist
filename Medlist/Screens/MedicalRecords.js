@@ -132,9 +132,6 @@ const MedicalRecords = ({navigation}) => {
            <Text style={styles.btnText}>Upload File</Text>
        </TouchableOpacity>
 
-       <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate('ViewData')} >
-           <Text style={styles.btnText}>View Data</Text>
-       </TouchableOpacity>
        </View>
    </View>
    </>
@@ -180,7 +177,7 @@ imgBox: {
   width: "90%", 
   height: 200,
   borderWidth:1,
-  borderColor:'blue',
+  borderColor:'#423f38',
 },
 btnContainer:{
   justifyContent:"center",

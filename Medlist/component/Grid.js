@@ -4,10 +4,10 @@ import { FlatGrid } from 'react-native-super-grid';
 
 const Grid = () => {
     const [items, setItems] = React.useState([
-        { name: 'Book Appointment', code: '#1abc9c' },
-        { name: 'Lab Test', code: '#2ecc71' },
-        { name: 'Medicines', code: '#3498db' },
-        { name: 'Surgeries', code: '#9b59b6' },
+        { name: 'Book Appointment', Img:'https://www.practostatic.com/consumer-home/desktop/images/1597423628/dweb_instant_video_consulation.png',bg: '#98cbd6'},
+        { name: 'Lab Test', Img:'https://www.practostatic.com/consumer-home/desktop/images/1597423628/dweb_lab_tests.png',bg: '#ccd0db' },
+        { name: 'Medicines', Img: 'https://www.practostatic.com/consumer-home/desktop/images/1597423628/dweb_medicines.png',bg: '#a2cae7' },
+        { name: 'Surgeries', Img:'https://www.practostatic.com/consumer-home/desktop/images/1597423628/dweb_surgeries.png',bg: '#d5d8fc' },
         
        
       ]);
@@ -24,7 +24,9 @@ const Grid = () => {
         <View style={[styles.itemContainer, { backgroundColor: "#eee" }]}>
         <View style={{flex:1}}>
         <Image 
-          source={require('../images/bg1.jpg')}
+          source={{
+            uri: item.Img
+          }}
           style={{height: 130, width: 140, borderRadius: 5,}}  />
           </View> 
           <View style={{flex:1,marginTop:90, justifyContent:"center", alignItems:'center'}}> 
