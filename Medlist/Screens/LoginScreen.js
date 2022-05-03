@@ -91,7 +91,7 @@ const LoginScreen = ({navigation}) => {
               </TouchableOpacity>
               <Image
                 style={Styles.btnImage}
-                source={require('../images/coffee.png')}
+                source={require('../images/facebook.png')}
               />
             </View>
             <View style={{width: 10}}></View>
@@ -103,7 +103,7 @@ const LoginScreen = ({navigation}) => {
               </TouchableOpacity>
               <Image
                 style={Styles.btnImage}
-                source={require('../images/coffee.png')}
+                source={require('../images/google.png')}
               />
            
             </View>
@@ -131,9 +131,7 @@ const LoginScreen = ({navigation}) => {
 
 
 
-       <TouchableOpacity onPress={() => navigation.navigate('SignupScreen')}>
-              <Text>SignupScreen</Text>
-          </TouchableOpacity>
+      
        </ScrollView>
       
      </SafeAreaView>

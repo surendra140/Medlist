@@ -98,24 +98,24 @@ const SignupScreen = ({navigation}) => {
             <View style={Styles.btnSecondary}>
             <TouchableOpacity onPress={() => alert("Login With Facebook")}>
               <Text style={{fontWeight: 'bold', fontSize: 16}}>
-                Sign up with
+                Sign in with
               </Text>
               </TouchableOpacity>
               <Image
                 style={Styles.btnImage}
-                source={require('../images/coffee.png')}
+                source={require('../images/facebook.png')}
               />
             </View>
             <View style={{width: 10}}></View>
             <View style={Styles.btnSecondary}>
             <TouchableOpacity onPress={() => Auth.googleLogin()}>
               <Text style={{fontWeight: 'bold', fontSize: 16}}>
-                Sign up with
+                Sign in with
               </Text>
               </TouchableOpacity>
               <Image
                 style={Styles.btnImage}
-                source={require('../images/coffee.png')}
+                source={require('../images/google.png')}
               />
            
             </View>
@@ -141,11 +141,6 @@ const SignupScreen = ({navigation}) => {
          
         </View>
 
-
-
-       <TouchableOpacity onPress={() => navigation.navigate('LoginScreen')}>
-              <Text>LoginScreen</Text>
-          </TouchableOpacity>
        </ScrollView>
       
      </SafeAreaView>

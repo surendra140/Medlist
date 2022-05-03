@@ -6,29 +6,10 @@ import SignupScreen from '../Screens/SignupScreen';
 import OnboardingScreen from '../Screens/OnboardingScreen';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-
-
 const Stack = createStackNavigator();
 
 const AuthStack = () => { 
 
-  const [isFirstLaunch, setIsFirstLaunch] = useState(null);
-
-  useEffect(() => {
-       AsyncStorage.getItem('alreadyLaunched').then((value) => {
-         if(value == null) {
-           AsyncStorage.setItem('alreadyLaunched', 'true');
-           setIsFirstLaunch(true);
-         }else {
-           setIsFirstLaunch(false);
-         }
-       });
-  }, []);
-
-  if(isFirstLaunch === null) {
-    console.log("ye wala chla")
-    return null;
-  } else if( isFirstLaunch == true) {
     return (
       <Stack.Navigator screenOptions={{
         headerShown:false
@@ -40,10 +21,5 @@ const AuthStack = () => {
       </Stack.Navigator>
     );
   }
-  else {
-    
-    return <LoginScreen />;
-  }
-}
-
+ 
 export default AuthStack;

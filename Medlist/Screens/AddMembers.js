@@ -129,7 +129,7 @@ const AddMembers = ({navigation}) => {
        </TouchableOpacity>
 
        <TouchableOpacity style={styles.btn}onPress={submitRecords} >
-           <Text style={styles.btnText}>Submit Deatils</Text>
+           <Text style={styles.btnText}>Submit Details</Text>
        </TouchableOpacity>
 
        </View>
